@@ -123,6 +123,17 @@ return res.stauts(201).send(saving)
     }
 })
 
+app.post("/fixeds",async(req,res)=>{
+    try{
+const fixed = await Fixed.create(req.body)
+return res.stauts(201).send(saving)
+    }
+    catch(err){
+        console.log(err)
+    }
+})
+
+
 
 
 

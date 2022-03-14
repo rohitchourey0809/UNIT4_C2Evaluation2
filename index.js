@@ -133,6 +133,16 @@ return res.stauts(201).send(saving)
     }
 })
 
+app.post("/balance",async(req,res)=>{
+    try{
+const balance = await Fixed.create(req.body)
+return res.stauts(201).send(balance)
+    }
+    catch(err){
+        console.log(err)
+    }
+})
+
 
 
 

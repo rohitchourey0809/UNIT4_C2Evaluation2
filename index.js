@@ -104,13 +104,25 @@ const fixedSchema = new mongoose({
 
 app.get("/masters",async(req,res)=>{
     try{
-const masters = await Master.find().populate({path:"user_id"})
+const masters = await Master.find().populate({path:"user_id"}).lean().exec()
 return res.send(masters)
     }
     catch(err){
         console.log(err)
     }
 })
+
+
+app.post("/savings",async(req,res)=>{
+    try{
+const saving = await Saving.create(req.body)
+return res.stauts(201).send(saving)
+    }
+    catch(err){
+        console.log(err)
+    }
+})
+
 
 
 
